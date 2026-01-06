@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: bakehouse
+    database: samples
+    schema: bakehouse
+    tables:
+
+      - name: sales_customers
+        columns:
+          - name: customerID
+            tests:
+              - not_null
+              - unique
+
+      - name: sales_transactions
+        loaded_at_field: dateTime
+        columns:
+          - name: transactionID
+            tests:
+              - not_null
+              - unique
+
+          - name: customerID
+            tests:
+              - not_null
+
