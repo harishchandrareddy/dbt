@@ -22,7 +22,7 @@ WITH base AS (
         postal_zip_code,
         gender,
         CURRENT_TIMESTAMP AS effective_from,
-        NULL AS effective_to,
+        CAST(NULL AS TIMESTAMP) AS effective_to,
         TRUE AS is_current
     FROM {{ ref('stg_sales_customers') }}
 
