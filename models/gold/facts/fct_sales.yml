@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: "Sales fact table"
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers_scd')
+              field: customer_id

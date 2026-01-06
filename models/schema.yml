@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: sales_customers
+    columns:
+      - name: customerID
+        data_tests:
+          - not_null
+
+  - name: sales_transactions
+    columns:
+      - name: customerID
+        data_tests:
+          - not_null
+      - name: transactionID
+        data_tests:
+          - unique
+          - not_null
+  - name: sales_customer_purchases
+    columns:
+      - name: first_name
+        data_tests:
+          - not_null

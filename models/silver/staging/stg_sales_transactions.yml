@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_sales_transactions
+    description: "Cleaned sales transaction data"
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_sales_customers')
+              field: customer_id
+
